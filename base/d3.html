@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v5.js"></script>
+</head>
+<body>
+    <p>vue</p>
+    <p>react</p>
+    <p>angular</p>
+    <button id="datum">datum</button>
+    <button id="data">data</button>
+
+    <script>
+        const body = d3.select('body')
+        const p = body.selectAll('p')
+        function doDatum() {
+            p.datum('哇哈哈真好喝')
+            p.text((d, i) => {
+                return `${d}-${i}`
+            })
+        }
+        function doData() {
+            const dataset = ['vue', 'react', 'angular']
+            p.data(dataset).text((d, i) => {
+                return `${d}-${i}`
+            })
+        }
+        document.getElementById('datum').addEventListener('click', function(e) {
+            doDatum()
+        })
+        document.getElementById('data').addEventListener('click', function(e) {
+            doData()
+        })
+    </script>
+</body>
+</html>
