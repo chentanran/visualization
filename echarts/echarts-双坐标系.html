@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="chart" style="width: 800px;height:500px;"></div>
+
+    <script>
+        const chartDom = document.getElementById('chart')
+        const chart = echarts.init(chartDom)
+        chart.setOption({
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: [{
+                min: 0,
+                max: 100
+            }, {
+                splitLine: {
+                    show: false
+                }
+            }], 
+            dataset: {
+                source: [
+                    ['product', '2012', '2013', '2014', '2015'],
+                    ['wahaha', 41, 30, 65, 53],
+                    ['shuangwaiwai', 24, 45, 38, 66],
+                ]
+            },
+            series: [
+                {
+                    type: 'bar',
+                    seriesLayoutBy: 'row',
+                    yAxisIndex: 0
+                },
+                {
+                    type: 'line',
+                    seriesLayoutBy: 'row',
+                    yAxisIndex: 1
+                }
+            ]
+        })
+    </script>
+</body>
+
+</html>
